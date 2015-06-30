@@ -15,5 +15,9 @@ public class hEnemLight extends Enemigos
     public void act() 
     {
         mov_rand();
+        if(getX()<400)
+        {
+            setImage("MC-1_der.png");
+        }
     }
 }

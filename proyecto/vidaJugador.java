@@ -67,6 +67,6 @@ public class vidaJugador extends Actor
             setImage("VidaJug.png");
             //System.out.println("Septimo ");
         }
-        System.out.println("contador: " + golpe);
+        //System.out.println("contador: " + golpe);
     }
 }

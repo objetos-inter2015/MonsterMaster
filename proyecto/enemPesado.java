@@ -15,5 +15,9 @@ public class enemPesado extends Enemigos
     public void act() 
     {
         mov_rand();
+        if(getX()<400)
+        {
+            setImage("HK-1_der.png");
+        }
     }
 }

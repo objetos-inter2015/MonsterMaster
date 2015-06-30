@@ -9,6 +9,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class hNivel3 extends Niveles
 {
     private int mundo = 0;
+    private int ex;
+    Enemigos enems[]={null,null,null,null,null};
     /**
      * Constructor for objects of class Nivel3.
      * 
@@ -25,12 +27,38 @@ public class hNivel3 extends Niveles
         if(mundo == 1)
         {
             addObject(new jugador(), 400, 550);
-            addObject(new enemPesado(), 600, 550);
+            enems[0] = new enemPesado();
+            enems[1] = new enemPesado();
+            enems[2] = new enemPesado();
+            enems[3] = new enemPesado();
+            enems[4] = new enemPesado();
+            for(int i = 0; i < 5 ; i++)
+            {
+                ex = Greenfoot.getRandomNumber(750);
+                if(ex==0)
+                {
+                    ex+=20;
+                }
+                addObject(enems[i],ex, 550);
+            }
         }
         if(mundo == 2)
         {
             addObject(new dJugPe(), 400, 550);
-            addObject(new hEnem(), 600, 550);
+            enems[0] = new hEnem();
+            enems[1] = new hEnem();
+            enems[2] = new hEnem();
+            enems[3] = new hEnem();
+            enems[4] = new hEnem();
+            for(int i = 0; i < 5 ; i++)
+            {
+                ex = Greenfoot.getRandomNumber(750);
+                if(ex==0)
+                {
+                    ex+=20;
+                }
+                addObject(enems[i],ex, 550);
+            }
         }
     }
 

@@ -20,7 +20,6 @@ public class Menu extends World
         Greenfoot.playSound("SC2_uiBNetToast.mp3");
         addObject(new Boton_Jugar(), 400, 190);
         addObject(new Boton_Ayuda(), 400, 290);
-        addObject(new Boton_Record(), 400, 390);
         addObject(new Boton_Salir(), 400, 490);
         addObject(new Titulo(), 400, 90);
         //Greenfoot.playSound("WeWerentAngels.mp3");

@@ -9,9 +9,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class bala_jug extends Balas
 {
     private int band_dir = 0;
-    public bala_jug(int dir)
+    private int tipo_bala = 0;
+    public bala_jug(int dir,int p)
     {
         band_dir = dir;
+        tipo_bala=p;
     }
 
     /**
@@ -20,7 +22,14 @@ public class bala_jug extends Balas
      */
     public void act() 
     {
-        setImage("Balajug1.png");
+        if(tipo_bala == 1)
+        {
+            setImage("Balajug1.png");
+        }
+        if(tipo_bala == 2)
+        {
+            setImage("Balajug2.png");
+        }
         muevete(band_dir);// Add your action code here.
         //checaColision();
     }

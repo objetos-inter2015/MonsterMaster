@@ -20,7 +20,7 @@ public class Niveles extends World
     }
     public void eliminaActores()
     {
-        List<Botones> a = getObjects(Botones.class);
+        List<Botones> a = getObjects(Actor.class);
         removeObjects(a);
     }
 }

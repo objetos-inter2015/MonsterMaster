@@ -13,12 +13,10 @@ public class gameOverText extends World
      * Constructor for objects of class gameOverText.
      * 
      */
-    public gameOverText(int p)
+    public gameOverText()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
-        puntos = p;
-        
         showText("Tu puntuación fue de: " + puntos, 400, 300);
         showText("Para salir apriete el siguiente boton",400,400);
         addObject(new botonSalirMenu(), 400, 490);

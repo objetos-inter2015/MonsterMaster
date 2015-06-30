@@ -15,5 +15,9 @@ public class hEnem extends Enemigos
     public void act() 
     {
         mov_rand();
+        if(getX()<400)
+        {
+            setImage("Samus_Aran2.png");
+        }
     }
 }

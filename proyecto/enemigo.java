@@ -15,5 +15,9 @@ public class enemigo extends Enemigos
     public void act() 
     {
         mov_rand();
+        if(getX()<400)
+        {
+            setImage("space_pirates2.png");
+        }
     }
 }

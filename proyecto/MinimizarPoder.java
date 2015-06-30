@@ -8,6 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class MinimizarPoder extends Poderes
 {
+    private int contaP = 0;
     /**
      * Act - do whatever the MinimizarPoder wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -15,6 +16,11 @@ public class MinimizarPoder extends Poderes
     public void act() 
     {
         // Add your action code here.
-        baja();
-    }    
+        contaP++;
+        if(contaP == 50)
+        {
+            baja();
+            contaP=0;
+        }
+    }
 }
