@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.*;
 /**
  * Write a description of class Enemigos here.
  * 
@@ -8,41 +8,48 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Enemigos extends Actor
 {
+    protected GreenfootImage[] enem = new GreenfootImage[8];
     private int mundo = 0;
     private int ex;
+    private int anim=0;
     private int rand=Greenfoot.getRandomNumber(400);
-    private int dir = 1;
+    private int dir = 1;//1 es a la izquierda, 2 a la derecha
     private int cont = 0;//milisegundos
     private int cont2 = 0;//Segundos
     private int cont3 = 0;//Segundos
     private int cont4 = 0;//Segundos
-    private int contGolpe = 0;
     private int vida = 5;
-    private int golpe = 0;
     private int puntos2 = 0;
     private int jump = -20;
     private int puntos = 0;
     private int verticalSpeed = 5;
+    static int contEnem = 0;
+    private int contGolpe = 0;
+    private int golpe = 0;
+    private String cad2;
     Poderes p = new Poderes();
     private int poderb = 0;
     private int poderm = 0;
+    private int en;
     /**
      * Act - do whatever the enemigo_1 wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
+
     public void act() 
     {
         // Add your action code here.
         mov_rand();
     }
+
     public void mov_rand()
     {
         String cad;
         int accion=Greenfoot.getRandomNumber(50);
         checkFall();
         cont ++;
-        cad = "Contador 1: " + cont +  "Contador 2: " + cont2;
-        getWorld().showText(cad, 500, 50);
+        cad = "Enemigos vencidos: " + contEnem;
+        getWorld().showText(cad, 500, 20);
         if(cont == 100)
         {
             cont2++;
@@ -81,6 +88,18 @@ public class Enemigos extends Actor
             {
                 muevete();
             }
+            if(accion==3)
+            {
+                muevete();
+            }
+            if(accion==5)
+            {
+                muevete();
+            }
+            /*if(accion==2)
+            {
+            muevete();
+            }*/
 
             if(cont==100)
             {
@@ -96,32 +115,10 @@ public class Enemigos extends Actor
                 }
             }
         }
-        if(isTouching(bala_jug.class))
+        if(contEnem == 4)
         {
-            if(poderb == 0)
-            {
-                contGolpe+=2;
-            }
-            if(poderb == 1)
-            {
-                contGolpe++;
-            }
-            if(contGolpe == 20)
-            {
-                golpe++;
-                if(golpe == 7)
-                {
-                    //getWorld().removeObject();
-                    vida--;
-                    if(vida == 0)
-                    {
-                        Greenfoot.setWorld(new gameOverText());
-                    }
-                }
-                contGolpe = 0;
-            }
-            removeTouching(bala_jug.class);
-            puntos = 0;
+            contEnem=0;
+            Greenfoot.setWorld(new gameOver());
         }
     }
 
@@ -129,20 +126,18 @@ public class Enemigos extends Actor
     {
         int band_dir = Greenfoot.getRandomNumber(40);
         int mov = 0;
+        dir=band_dir;
         switch(band_dir)
         {
             case 1:
-            //setImage("space_pirates2.png");
-            setLocation(getX()+20,getY());
+            animacion();
             mov = 1;
             break;
             case 2:
-            //setImage("space_pirates1.png");
-            setLocation(getX()-20,getY());
+            animacion();
             mov = 2;
             break;
         }
-        dir = mov;
     }
 
     public void pintaPoderes()
@@ -183,6 +178,10 @@ public class Enemigos extends Actor
     private void dispara()
     {
         int band = 0;
+        if(getX()<400)
+        {
+            dir=1;
+        }
         if (dir!=0)
         {
             band = dir;
@@ -218,16 +217,83 @@ public class Enemigos extends Actor
 
     public void detenEnem()
     {
+        cad2 = "Si entro a la detenerte ";
+        //cad = "Enemigos a vencer: " + contEnem;
+        //getWorld().showText(cad, 500, 50);
         if(poderm == 0)
         {
             poderm = 1;
         }
     }
+
     public void minP()
     {
+        cad2 = "Si entro a ganarte ";
+        //cad = "Enemigos a vencer: " + contEnem;
+        //getWorld().showText(cad, 500, 20);
         if(poderb == 0)
         {
             poderb = 1;
+        }
+    }
+
+    public void animacion()
+    {
+        int anim;
+        for(anim=0; anim<=400;anim++)
+        {
+            if(anim==100)
+            {
+                if(dir==1)
+                {
+                    setLocation(getX()+4,getY());
+                    setImage(enem[4]);
+                }
+                if(dir==2)
+                {
+                    setLocation(getX()-4,getY());
+                    setImage(enem[0]);
+                }
+            }
+            if(anim==200)
+            {
+                if(dir==1)
+                {
+                    setLocation(getX()+4,getY());
+                    setImage(enem[5]);
+                }
+                if(dir==2)
+                {
+                    setLocation(getX()-4,getY());
+                    setImage(enem[1]);
+                }
+            }
+            if(anim==300)
+            {
+                if(dir==1)
+                {
+                    setLocation(getX()+4,getY());
+                    setImage(enem[6]);
+                }
+                if(dir==2)
+                {
+                    setLocation(getX()-4,getY());
+                    setImage(enem[2]);
+                }
+            }
+            if(anim==400)
+            {
+                if(dir==1)
+                {
+                    setLocation(getX()+4,getY());
+                    setImage(enem[7]);
+                }
+                if(dir==2)
+                {
+                    setLocation(getX()-4,getY());
+                    setImage(enem[3]);
+                }
+            }
         }
     }
 }

@@ -16,7 +16,7 @@ public class DetenerEnemigo extends Poderes
     public void act() 
     {
         contaP++;
-        if(contaP == 50)
+        if(contaP == 25)
         {
             baja();
             contaP=0;

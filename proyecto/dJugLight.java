@@ -8,12 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class dJugLight extends Jugadores
 {
-    /**
-     * Act - do whatever the jugador wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    public dJugLight()
     {
-        mover();
+        jug[0]= new GreenfootImage("EnemCorreIzq1.png");
+        jug[1]= new GreenfootImage("EnemCorreIzq2.png");
+        jug[2]= new GreenfootImage("EnemCorreIzq1.png");
+        jug[3]= new GreenfootImage("El-1_izq.png");
+        jug[4]= new GreenfootImage("EnemCorreDer1.png");
+        jug[5]= new GreenfootImage("EnemCorreDer2.png");
+        jug[6]= new GreenfootImage("EnemCorreDer1.png");
+        jug[7]= new GreenfootImage("El-1_der.png");
     }
+    
 }

@@ -8,7 +8,9 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Jugadores extends Actor
 {
+    public GreenfootImage[] jug = new GreenfootImage[8];
     private int salto = 10;
+    private int dir = 1;
     private int poder = 2;
     private int disp = 0;
     private int puntos = 0;
@@ -25,27 +27,20 @@ public class Jugadores extends Actor
     private int du;
     private int de;
     private int av;
-    //Modificar if's mas abajo
+    private int i = 0 ;
+    private String cad;
     /**
      * Act - do whatever the jugador wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
     {
-        mover();
-    }
-
-    /**
-     * 
-     */
-    protected void mover()
-    {
         String cad;
-        int i;
         int x = getX();
         int y = getY();
         int band_dir=1;
         int band_mov = 1;
+        int it = 0;
         int band = Greenfoot.getRandomNumber(4000);
         Actor bala = getOneIntersectingObject(bala_enem.class);
         Enemigos e = new Enemigos();
@@ -88,12 +83,42 @@ public class Jugadores extends Actor
         {
             if (Greenfoot.isKeyDown("Right"))
             {
-                setLocation(getX()+1,getY());
+                x+=20;
+                if(getX()==x)
+                {
+                    setLocation(getX()+4,getY());
+                    setImage(jug[i]);
+                }
+                else
+                {
+                    setLocation(getX()+4,getY());
+                    setImage(jug[i]);
+                    i++;
+                    if(i>=4)
+                    {
+                        i=0;
+                    }
+                }
                 band_dir = 1;
             }
             if (Greenfoot.isKeyDown("Left"))
             {
-                setLocation(getX()-1,getY());
+                x-=20;
+                if(getX()==x)
+                {
+                    setLocation(getX()-4,getY());
+                    setImage(jug[i+4]);
+                }
+                else
+                {
+                    setLocation(getX()-4,getY());
+                    setImage(jug[i+4]);
+                    i++;
+                    if(i==4)
+                    {
+                        i=0;
+                    }
+                }
                 band_dir = 2;
             }
             if (Greenfoot.isKeyDown("Space"))
@@ -104,7 +129,7 @@ public class Jugadores extends Actor
                     fall();                
                 }
             }
-
+            dir = band_dir;
             if(Greenfoot.isKeyDown("F"))
             {
                 getWorld().addObject(new bala_jug(band_dir,poder),x,y);   
@@ -138,6 +163,10 @@ public class Jugadores extends Actor
         if(isTouching(DañoUsuario.class))
         {
             disp++;
+            if(disp == 7)
+            {
+                Greenfoot.setWorld(new gameOver());
+            }
             removeTouching(DañoUsuario.class);
         }
         if(isTouching(AgrandarVida.class))
@@ -161,6 +190,11 @@ public class Jugadores extends Actor
             removeTouching(bala_enem.class);
         }
     }
+
+    /*public void mover()
+    {
+        
+    }*/
 
     private void fall()
     {
@@ -187,4 +221,5 @@ public class Jugadores extends Actor
         else
             fall();
     }
+    
 }	

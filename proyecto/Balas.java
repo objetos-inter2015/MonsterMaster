@@ -16,6 +16,7 @@ public class Balas extends Actor
     {
         //muevete();// Add your action code here.
     }
+
     protected void muevete(int dir)
     {
         int band_dir = dir;
@@ -24,29 +25,19 @@ public class Balas extends Actor
         checaColision();
         if(band_dir == 1)
         {
-            switch(band)
-            {
-                case 0:
-                setLocation(x+20,y);
-                break;
-            }
+            setLocation(x+20,y);
         }
         if(band_dir == 2)
         {
-            switch(band)
-            {
-                case 0:
-                setLocation(x-20,y);
-                break;
-            }
+            setLocation(x-20,y);
         }
     }
+
     private void checaColision()
     {
         Actor a = this.getOneIntersectingObject(bala_enem.class);
         if(a != null )
         {
-            //getWorld().removeObject(this);
             this.getWorld().removeObject(a);
         }
         if(isAtEdge())

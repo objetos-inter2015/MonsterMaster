@@ -8,12 +8,16 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class dJug extends Jugadores
 {
-    /**
-     * Act - do whatever the jugador wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
+    public dJug()
     {
-        mover();
+        jug[0]= new GreenfootImage("enemigo_pasos izq1.png");
+        jug[1]= new GreenfootImage("enemigo_pasos izq2.png");
+        jug[2]= new GreenfootImage("enemigo_pasos izq3.png");
+        jug[3]= new GreenfootImage("enemigo_pasos izq4.png");
+        jug[4]= new GreenfootImage("enemigo_pasos der2.png");
+        jug[5]= new GreenfootImage("enemigo_pasos der3.png");
+        jug[6]= new GreenfootImage("enemigo_pasos der4.png");
+        jug[7]= new GreenfootImage("enemigo_pasos der5.png");
     }
+    
 }

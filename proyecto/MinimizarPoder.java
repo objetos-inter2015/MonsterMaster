@@ -17,7 +17,7 @@ public class MinimizarPoder extends Poderes
     {
         // Add your action code here.
         contaP++;
-        if(contaP == 50)
+        if(contaP == 25)
         {
             baja();
             contaP=0;
