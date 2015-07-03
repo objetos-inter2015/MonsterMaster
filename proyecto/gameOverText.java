@@ -8,7 +8,6 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class gameOverText extends World
 {
-    private int puntos = 0;
     /**
      * Constructor for objects of class gameOverText.
      * 
@@ -17,7 +16,7 @@ public class gameOverText extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(800, 600, 1);
-        showText("Tu puntuación fue de: " + puntos, 400, 300);
+        showText("Los enemigos se retiran, bien hecho", 400, 300);
         showText("Para salir apriete el siguiente boton",400,400);
         addObject(new botonSalirMenu(), 400, 490);
     }

@@ -19,7 +19,7 @@ public class Portada extends World
         super(800, 600, 1); 
         
         GreenfootSound sound = new GreenfootSound("WeWerentAngels.mp3");
-        //sound.play();
+        sound.play();
         
         addObject(new Presentacion(sound), 400, 300);
         //Imprimir la portada de nombres y esperar al usuario

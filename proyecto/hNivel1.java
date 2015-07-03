@@ -23,6 +23,7 @@ public class hNivel1 extends Niveles
 
     private void pinta_mundo()
     {
+        
         if(mundo == 1)
         {
             addObject(new jugLight(), 400, 550);
@@ -51,5 +52,7 @@ public class hNivel1 extends Niveles
                 addObject(enems[i],ex, 550);
             }
         }
+        
     }
+    
 }

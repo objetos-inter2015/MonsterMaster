@@ -23,4 +23,8 @@ public class Niveles extends World
         List<Botones> a = getObjects(Actor.class);
         removeObjects(a);
     }
+    public void detenM(GreenfootSound m)
+    {
+        m.stop();
+    }
 }

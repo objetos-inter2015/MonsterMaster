@@ -193,7 +193,7 @@ public class Jugadores extends Actor
 
     /*public void mover()
     {
-        
+
     }*/
 
     private void fall()
@@ -221,5 +221,5 @@ public class Jugadores extends Actor
         else
             fall();
     }
-    
+
 }	

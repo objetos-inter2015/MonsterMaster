@@ -118,7 +118,7 @@ public class Enemigos extends Actor
         if(contEnem == 4)
         {
             contEnem=0;
-            Greenfoot.setWorld(new gameOver());
+            Greenfoot.setWorld(new gameOverText());
         }
     }
 
